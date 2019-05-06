@@ -548,8 +548,11 @@ function UpdatePosition() {
     }   
     if(ball_count <= 0)
     {
+        context.font = "70px Comic Sans MS";
+        context.fillStyle = "yellow";
+        context.textAlign = "center";
+        context.fillText("We have a Winner!!!", canvas.width/2, canvas.height/2);
         stop_game();
-        window.alert("You are the winner !!!");
     }
     if(life == 0)
     {
