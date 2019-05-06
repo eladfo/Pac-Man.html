@@ -571,8 +571,7 @@ function UpdatePosition() {
         context.fillText("We have a Winner!!!", canvas.width/2, canvas.height/2);
         stop_game();
     }
-
-    if(life == 0)
+    else if(life == 0)
     {
         context.font = "70px Comic Sans MS";
         context.fillStyle = "yellow";
