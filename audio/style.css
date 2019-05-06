@@ -1,0 +1,490 @@
+@import 'https://fonts.googleapis.com/css?family=Shrikhand';
+
+canvas {
+   background-color: white;
+   padding: 0;
+    margin: auto;
+    display: block;
+    
+}
+
+#footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 2mm;
+  text-align: center;
+  font-family: Tahoma, Geneva, sans-serif;
+  background-color: #565656;
+  color: yellow;
+}
+#header {
+  position: absolute;
+  padding: 14px;
+  background-color: #565656;
+  right: 0;
+  left: 0;
+  top: 0;
+  align-content: center;
+  text-align: center;
+  font-family: Tahoma, Geneva, sans-serif;
+  color: yellow;
+}
+#logo_header{
+  position: absolute;
+  left: 38%;
+  top: 0.5em;
+}
+#game {
+  position: absolute;
+  align-content: center;
+  text-align: center;
+  left: 13%;
+  top: 10%;
+}
+#game label
+{
+    color: white;
+}
+#game input[type=button] {
+  text-align: center;
+        align-content: center;
+        font-size: 16px;
+        margin-top: 15px;
+        padding: 7px 35px;
+        color: black;
+        font-weight: bold;
+        border-radius: 5px;
+}
+
+
+#game input[type=text]  {
+  border: none;
+  color: #0d0d0d;
+  padding: 5px 15px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  width: 10%;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin-right: 0%;
+  text-align: center;
+}
+#setting_button {
+  background-color: rgba(234, 241, 143, 0.883); 
+}
+ #Start_button {
+    background-color: rgba(234, 241, 143, 0.883); 
+    width: 15%;
+    }
+    #Stop_button  {
+        background-color: rgba(241, 155, 121, 0.883); 
+        width: 15%;
+        }
+    #login_button:hover{
+        background-color: rgb(238, 241, 188); 
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+#pac_logo
+{
+  position: absolute;
+  left:10%;
+}
+
+
+
+#LogOut
+{
+position: absolute;
+right: 3%;
+display: inline;
+background-color: rgba(233, 245, 68, 0.993); 
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 7px 7px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    size: 20ch;
+    font-size: 14px;
+    top: 0.8em;
+  }
+#LogOutlbl
+{
+position: absolute;
+font-family: Tahoma, Geneva, sans-serif;
+font-weight: bold;
+
+right: 11%;
+display: inline;
+font-family: Tahoma, Geneva, sans-serif;
+color: #FFF;
+top: 1em;
+
+}
+#Welcome {
+    align-content: center;
+    text-align: center;
+}
+#Welcome h1 {
+    position: absolute;
+    color: yellow;
+    font-family: 'Shrikhand', cursive;
+    width: 100%;
+    text-align: center;
+    top: 20%;
+    transform: translateY(-50%);
+    height: auto;
+    display: block;
+    font-size:1.5cm
+  }
+  #Welcome h2 {
+    position: absolute;
+    color: yellow;
+    font-family: 'Shrikhand', cursive;
+    width: 100%;
+    text-align: center;
+    top: 30%;
+    transform: translateY(-50%);
+    height: auto;
+    display: block;
+    font-size:1.5cm
+  }
+
+  #Welcome button {
+    background-color: rgba(234, 241, 143, 0.883); 
+    border: none;
+    color: rgb(15, 15, 15);
+    font-weight: bold;
+    padding: 30px 70px;
+    text-align: center;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+    size: 20ch;
+    font-size: 16px;
+    top:40%;
+  }
+  #Welcome button:hover{
+    background-color: rgb(238, 241, 188); 
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+    #Login {
+    border-radius: 10px 10px 10px 10px;
+    align-content: center;
+    text-align: center;
+    
+  }
+
+
+#Login input[type=text]  {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    width: 20%;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 0%;
+    background: rgba(255,255,255,0.4);
+    outline: none;
+    -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);  
+  }
+  #Login input[type=password]  {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    width: 20%;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin-right: 0%;
+    background: rgba(255,255,255,0.4);
+    outline: none;
+    -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5); 
+     
+   
+  }
+  ::-webkit-input-placeholder { color: white;} 
+  ::-moz-placeholder { color:white; }
+  #login_button {
+    font-size: 20px;
+    margin-top: 15px;
+    background-color: rgba(234, 241, 143, 0.883); 
+    padding: 7px 35px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 20%;
+    }
+    #login_button:hover{
+        background-color: rgb(238, 241, 188); 
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+  #Login h1 {
+    position: absolute;
+    color: yellow;
+    font-family: 'Shrikhand', cursive;
+    width: 100%;
+    text-align: center;
+    top: 15%;
+    transform: translateY(-50%);
+    height: auto;
+    display: block;
+    font-size:1.25cm
+  }
+  #Register h1 {
+    position: absolute;
+     color: yellow;
+     font-family: 'Shrikhand', cursive;
+     width: 100%;
+     text-align: center;
+     top: 10%;
+     transform: translateY(-50%);
+     height: auto;
+     display: block;
+     font-size:1.25cm
+   }
+
+  #Register label{
+    color: #ffffff;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
+
+
+#register {
+font-size: 20px;
+margin-top: 15px;
+background-color: rgba(234, 241, 143, 0.883); 
+padding: 7px 35px;
+color: black;
+font-weight: bold;
+border-radius: 5px;
+width: 20%;
+}
+#register:hover{
+    background-color: rgb(238, 241, 188); 
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);}
+
+    
+
+#Register input[type=text] , #Register input[type=password], #Register input[type=date]  {
+  border: none;
+  color:white;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 12px;
+  width: 20%;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin-right: 20%;
+  background: rgba(255,255,255,0.4);
+  outline: none;
+  -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);  
+}
+
+ 
+  #settings h1
+{
+    position: absolute;
+    color: yellow;
+    font-family: 'Shrikhand', cursive;
+    width: 100%;
+    text-align: center;
+    top: 10%;
+    transform: translateY(-50%);
+    height: auto;
+    display: block;
+    font-size:1.5cm
+}
+#settings label{
+    color: #ffffff;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    clear: left;
+    text-align: left;
+    top: 40%;
+    align-content: center;
+
+    }
+    #settings input[type=text]   {
+        width: 10%;
+
+      }
+      #settings select 
+      {
+          width: 5%;
+      }
+      #Save_settings {
+        font-size: 20px;
+        margin-top: 15px;
+        background-color: rgba(234, 241, 143, 0.883); 
+        padding: 7px 35px;
+        color: black;
+        font-weight: bold;
+        border-radius: 5px;
+        width: 20%;
+        }
+        #Save_settings:hover{
+            background-color: rgb(238, 241, 188); 
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+            font-weight: bold;
+
+        }
+
+
+        #header_menu{
+         
+          border-bottom:  1px  solid rgb(186, 187, 149) ;
+          
+          text-align: left;
+          font-weight: bold;
+          color: yellow;
+
+        }
+
+        .sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  margin-bottom:15px;
+  margin-left: 5px;
+  transition: 0.3s;
+
+}
+
+.sidebar a:hover {
+  color: yellow;
+  background-color: rgb(68, 68, 68);
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#openbtn {
+  top:0;
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #565656;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+#openbtn:hover {
+  background-color: rgb(68, 68, 68);
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+
+/* Popup box BEGIN */
+.hover_bkgr_fricc{
+  background:rgba(0,0,0,.4);
+  cursor:pointer;
+  display:none;
+  height:100%;
+  position:fixed;
+  text-align:center;
+  top:0;
+  width:100%;
+  z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+  display:inline-block;
+  height:100%;
+  vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+  background-color: #fff;
+  box-shadow: 10px 10px 60px #555;
+  display: inline-block;
+  height: auto;
+  max-width: 551px;
+  min-height: 100px;
+  vertical-align: middle;
+  width: 60%;
+  position: relative;
+  border-radius: 8px;
+  padding: 15px 5%;
+}
+.popupCloseButton {
+  background-color: #fff;
+  border: 3px solid #999;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: arial;
+  font-weight: bold;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 25px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+.popupCloseButton:hover {
+  background-color: #ccc;
+}
+
+        
+
+
