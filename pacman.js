@@ -9,9 +9,8 @@ var interval_time;
 var pacImg;
 var wallImg;
 var monsterImg
-var point5;
-var point15;
-var point25;
+var hourglassesImg;
+var heartImg;
 var pac_pos;
 var canvas;
 var map_user;
@@ -20,7 +19,6 @@ var col = 20;
 var life = 3;
 var monster_count;
 var ball_count ;
-var timer;
 var IsLogIN;
 var prize;
 var key_up;
@@ -81,11 +79,6 @@ function Start() {
     document.getElementById("right_button").value = Right_KeyName;
     document.getElementById("left_button").value = Left_KeyName;
 
-    document.getElementById("5_color").value = color_5 ;
-    document.getElementById("15_color").value = color_15 ;
-    document.getElementById("25_color").value = color_25;
-
-
     document.getElementById("LogOutlbl").style.visibility = "hidden" ;
     document.getElementById("LogOut").style.visibility = "hidden" ;
 
@@ -95,16 +88,7 @@ function Start() {
     
     wallImg = new Image();
     wallImg.src = "img/pac_wall.png";
-
-    point5 = new Image();
-    point5.src = "img/p5.png";
-
-    point15 = new Image();
-    point15.src = "img/p15.png";
-
-    point25 = new Image();
-    point25.src = "img/p25.png";
-
+    
     monster1Img = new Image();
     monster1Img.src = "img/m11.png"
 
@@ -114,9 +98,18 @@ function Start() {
     monster3Img = new Image();
     monster3Img.src = "img/m33.png"
 
-
     prizeImg = new Image();
     prizeImg.src = "img/bonus_50.png"
+
+    hourglassesImg = new Image();
+    hourglassesImg.src = "img/hs.png"
+
+    heartImg = new Image();
+    heartImg.src = "img/life.png"
+
+    document.getElementById("5_color").value = color_5 ;
+    document.getElementById("15_color").value = color_15 ;
+    document.getElementById("25_color").value = color_25;
 
     board = new Array();
     map_user = new Map();
@@ -129,17 +122,15 @@ function set_settings( )
     ball_count=document.getElementById("Num_ball").value;
     monster_count=document.getElementById("Num_of_Monsters").value;
     time_elapsed=document.getElementById("Total_time").value;
-
     color_5 = document.getElementById("5_color").value ;
     color_15 = document.getElementById("15_color").value ;
     color_25 = document.getElementById("25_color").value ;
-
 }
 
 function save_settings()
 {
     if(document.getElementById("Num_ball").value > 90 || document.getElementById("Num_ball").value < 50 || document.getElementById("Num_ball").value  == '' )
-        alert("Num of ball should be a number between 50 to 90 !");
+        alert("The number of balls should be between 50 to 90 !");
     else if(document.getElementById("Total_time").value < 60 || document.getElementById("Total_time").value ==  '' )
         alert("The time of the game should be at least 60 seconds !");
     else{
@@ -147,14 +138,7 @@ function save_settings()
         showElem('settings','game');
     }  
 }
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
+
 function Random_settings()
 {
     document.getElementById("Num_ball").value = 50 + Math.floor((Math.random() * 41)) ;
@@ -172,21 +156,25 @@ function Random_settings()
     Down_KeyName = "ArrowDown";
     Up_keycode = 38;
     Up_KeyName = "ArrowUp";
-
     document.getElementById("5_color").value = getRandomColor() ;
     document.getElementById("15_color").value = getRandomColor() ;
     document.getElementById("25_color").value = getRandomColor() ;
-    
-
 }
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
 function Start_new_game()
 {
     set_settings();
     set_pos_moster();
     eat_bonus = false;
-
-
     
     //properties the board!!!
     life = 3;
@@ -194,7 +182,7 @@ function Start_new_game()
     for (var i = 0; i < col; i++) {
         board[i] = new Array();
         for (var j = 0; j < row; j++) {
-            if((i==1 && j==2)||(i==1 && j==3)||(i==1 && j==4)||(i==2 && j==3)||(i==1 && j==1)||(i==0 && j==6    )
+            if( (i==0 && j==6)||(i==19 && j==6)
                 ||(i==2 && j==8)||(i==3 && j==8)||(i==4 && j==8)||(i==5 && j==8)||(i==1 && j==8)
                 ||(i==6 && j==8)||(i==7 && j==8)||(i==5 && j==7)||(i==5 && j==6)||(i==5 && j==8)
                 ||(i==12 && j==8)||(i==17 && j==8)||(i==16 && j==8)||(i==15 && j==8)||(i==18 && j==8)
@@ -202,7 +190,14 @@ function Start_new_game()
                 ||(i==10 && j==8)||(i==9 && j==8)||(i==10 && j==7)||(i==10 && j==6)||(i==9 && j==7)
                 ||(i==9 && j==6)||(i==8 && j==6)||(i==11 && j==6)||(i==7 && j==6)||(i==12 && j==6)
                 ||(i==10 && j==4)||(i==9 && j==4)||(i==10 && j==3)||(i==9 && j==3)||(i==9 && j==2)
-                ||(i==10 && j==2)||(i==11 && j==2)||(i==8 && j==2)||(i==7 && j==2)||(i==12 && j==2))
+                ||(i==10 && j==2)||(i==11 && j==2)||(i==8 && j==2)||(i==7 && j==2)||(i==12 && j==2)
+                ||(i==2 && j==6)||(i==2 && j==5)||(i==2 && j==4)||(i==2 && j==3)||(i==2 && j==2)||(i==1 && j==3)
+                ||(i==4 && j==4)||(i==5 && j==4)||(i==6 && j==4)||(i==4 && j==0)||(i==5 && j==0)||(i==6 && j==0)||(i==5 && j==1)
+                ||(i==13 && j==4)||(i==14 && j==4)||(i==15 && j==4)
+                ||(i==17 && j==6)||(i==17 && j==5)||(i==17 && j==4)||(i==17 && j==3)||(i==17 && j==2)||(i==18 && j==3)
+                ||(i==14 && j==0)||(i==15 && j==0)||(i==16 && j==0)||(i==15 && j==1)
+                )
+                
             {
                 board[i][j] = 4; //wall
             }
@@ -213,7 +208,6 @@ function Start_new_game()
     }
     set_pos_prize();
     set_pac_pos();
-
 
     window.clearInterval(interval);
     window.clearInterval(interval_monster);
@@ -242,12 +236,20 @@ function Start_new_game()
     addEventListener("keydown", function (e) {keysDown[e.keyCode] = true; }, false);
     addEventListener("keyup", function (e) {keysDown[e.keyCode] = false;  }, false);
 
-    interval=setInterval(UpdatePosition, 100);
-    interval_monster = setInterval(move_monster,250);
-    interval_time = setInterval(timer, 1000);
     audio.currentTime = 0;
     audio.loop = true;
     audio.play();
+
+    var emptyCell = findRandomEmptyCell(board);
+    board[emptyCell[0]][emptyCell[1]] = 1000;
+
+    var emptyCell = findRandomEmptyCell(board);
+    board[emptyCell[0]][emptyCell[1]] = 'heart';
+
+    interval=setInterval(UpdatePosition, 100);
+    interval_monster = setInterval(move_monster,250);
+    interval_time = setInterval(timer, 1000);
+   
 }
 
 function timer(){
@@ -302,12 +304,11 @@ function Draw() {
                 else if(pac_pos==4)
                     pacImg.src="img/pac_right.png";
                 context.drawImage(pacImg, center.x, center.y);
-
             } else if (board[i][j] == 55) {
                 context.beginPath();
                 context.arc(center.x +20 , center.y+20, 10, 0, 2 * Math.PI); // circle
                 context.fillStyle = color_5;  
-                context.fill();
+                context.fill();            
             } else if (board[i][j] == 15) {
                 context.beginPath();
                 context.arc(center.x +20 , center.y+20, 10, 0, 2 * Math.PI); // circle
@@ -322,14 +323,20 @@ function Draw() {
             else if (board[i][j] == 4) {
                 context.drawImage(wallImg,center.x,center.y);
             }
+            else if (board[i][j] == 1000) {
+                context.drawImage(hourglassesImg,center.x,center.y);
+            } 
+            else if (board[i][j] == 'heart') {
+                context.drawImage(heartImg,center.x,center.y);
+            }
         }
     }   
-                var i=0;
-                for(i;i< monster_count ; i++)
-                    context.drawImage(arr_mos[i].pic,arr_mos[i].x*40,arr_mos[i].y*40);
-                
-                if(eat_bonus == false)
-                    context.drawImage(prizeImg,prize.x * 40,prize.y*40);
+    var i=0;
+    for(i;i< monster_count ; i++)
+        context.drawImage(arr_mos[i].pic,arr_mos[i].x*40,arr_mos[i].y*40);
+    
+    if(eat_bonus == false)
+        context.drawImage(prizeImg,prize.x * 40,prize.y*40);
 }
 
 
@@ -407,7 +414,7 @@ function MoveTo(x)
             document.getElementById("settings").hidden = true;
         }
         else
-            alert(" You nedd to LogIn!");
+            alert(" You need to login!");
        
     }          
 }
@@ -468,8 +475,6 @@ function GetKeyPressed() {
 }
 
 function UpdatePosition() {
-    //document.getElementById("Num_ball").value = ball_count;
-    //board[shape.x][shape.y]=0; 
     if(shape.x == prize.x && shape.y == prize.y)
     {
         score=score+50;
@@ -520,7 +525,7 @@ function UpdatePosition() {
 
     if(check_fail_by_monster())
     {        
-            life = life -1 ;
+            life = life - 1 ;
             score = score - 10;
             //board[shape.x][shape.y]=0;
             set_pac_pos();
@@ -546,14 +551,24 @@ function UpdatePosition() {
         board[shape.x][shape.y]=0;
         ball_count--;
     }   
+    if(board[shape.x][shape.y]==1000)
+    {
+        time_elapsed += 30;
+        board[shape.x][shape.y]=0;
+    }   
+    if(board[shape.x][shape.y]=='heart')
+    {
+        if(life < 3)
+            life++;
+        board[shape.x][shape.y]=0;
+    }   
+
     if(ball_count <= 0)
     {
-        context.font = "70px Comic Sans MS";
-        context.fillStyle = "yellow";
-        context.textAlign = "center";
-        context.fillText("We have a Winner!!!", canvas.width/2, canvas.height/2);
         stop_game();
+        window.alert("You are the winner !!!");
     }
+
     if(life == 0)
     {
         context.font = "70px Comic Sans MS";
@@ -568,7 +583,7 @@ function UpdatePosition() {
         context.font = "70px Comic Sans MS";
         context.fillStyle = "yellow";
         context.textAlign = "center";
-        context.fillText("You can do better!", canvas.width/2, canvas.height/2);
+        context.fillText("You can do better", canvas.width/2, canvas.height/2);
         stop_game();
 
     }
@@ -627,7 +642,6 @@ function set_pos_moster()
                 
 }
     
-
 
 function move_monster()
 {
@@ -739,7 +753,6 @@ function possible_move(moster,flag)
     return arr;
 }
 
-
 function possible_move_prize(moster,flag)
 {
     arr = new Array();
@@ -776,6 +789,7 @@ function possible_move_prize(moster,flag)
         arr[3] = 0;
     return arr;
 }
+
 function index_of_max_value(arr)
 {
     var min = arr[0];
@@ -789,7 +803,6 @@ function index_of_max_value(arr)
     return index;
 }
 
-
 function index_of_min_value(arr)
 {
     var max = arr[0];
@@ -802,54 +815,13 @@ function index_of_min_value(arr)
     }
     return index;
 }
-/*
-$(document).ready(function() {
 
-    $("#register").click(function() {
-    var UserName = $("#UserName").val();
-    var FirstName = $("#FirstName").val();
-    var LastName = $("#LastName").val();
-    var Email = $("#Email").val();
-    var Password = $("#Password").val();
-    var BirthDate = $("#BirthDate").val();
-    
-    function isValidPassword(emailAddress) {
-        var pattern = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/);
-        return pattern.test(emailAddress);
-    };                
-    if (UserName == '' || FirstName == '' || LastName == '' || Email == '' || Password == '' || BirthDate == '') {
-    alert("Please fill all fields!");
-    }
-    else if (! Password.match(/[A-z]/) || ! Password.match(/[\d]/) || Password.length<8) {
-    alert("Password should atleast 8 character and contain at least 1 letters and one digit!");
-    } 
-    else if (FirstName.match(/[\d]/) ||  LastName.match(/[\d]/) ) {
-        alert("A first and last name should consist of letters only!");
-        } 
-    else if (! Email.match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
-        alert("Email address is invalid!");
-    }     
-    else if(map_user.get(UserName))
-        alert("Username exists on the system! Please choose a new username.");
-    else
-    {
-        alert("Registration successful!");
-        map_user.set(UserName,Password);
-        showElem('Register','settings')
-        document.getElementById("LogOutlbl").innerHTML = 'Hello, ' + UserName ;
-        document.getElementById("LogOutlbl").style.visibility = "visible" ;
-        document.getElementById("LogOut").style.visibility = "visible" ;
-        IsLogIN = true;
-    }
-    });
-    */
    $.validator.addMethod("PASSWORD", function (value, element) {
     return this.optional(element) || /^(?=.*\d)(?=.*[A-z]).{8,}$/i.test(value);
 }, "Password should atleast 8 character and contain at least 1 letters and one digit!");
 
-   $(document).ready(function() {
+$(document).ready(function() {
    
-
     $('form[id="formRegister"]').validate({
 
         
@@ -948,21 +920,10 @@ $(document).ready(function() {
     $("#down_button").keyup(function(e) {
         document.getElementById("down_button").value=Down_KeyName ;
     });
-
-
-
-
 });
 
 
-
-
-    
-
-
-   
-
-    $(window).load(function () {
+$(window).load(function () {
 
         $(".trigger_popup_fricc").click(function(){
            $('.hover_bkgr_fricc').show();
@@ -980,4 +941,4 @@ $(document).ready(function() {
            }
        });
     
-    });
+});

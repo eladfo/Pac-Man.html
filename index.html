@@ -9,12 +9,12 @@
     </head>
     <body background="img/wp.png" >
 
-        <div  id = "header" > Pac-Man Gmae create by Alon&Elad
+        <div  id = "header" > Pac-Man game created by Alon&Elad
                 
             <button id="openbtn" onclick="openNav()">☰ Menu</button>  
                 <img id="logo_header" src="img/logo_header.png">
                 <label id="LogOutlbl"> </label>
-                <input type="button"  id="LogOut" value="LogOut"  onclick="LogOut()">
+                <input type="button"  id="LogOut" value="Log Out"  onclick="LogOut()">
         
         
         </div>
@@ -37,70 +37,69 @@
          
 
         <div id="game" hidden=true>
-            <label> Score: </label>
-            <input id="lblScore" type="text" />&ensp;
-            <label> Time left: </label>
-            <input id="lblTime" type="text"/>&ensp;
-            <label> Life: </label> 
+            <label> Score </label>
+            <input id="lblScore" type="text" />&ensp;&ensp;
+            <label> Time left </label>
+            <input id="lblTime" type="text"/>&ensp;&ensp;
+            <label> Life </label> 
             <img id="h1" src="img/heart.png">
             <img id="h2" src="img/heart.png">
             <img id="h3" src="img/heart.png">
             &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-            <input type="button" name="setting_button" id="setting_button" value="Settings" onclick="initial_settings()">
             <br><br/>
             <input type="button" name="Start" id="Start_button" value="Start" onclick="Start_new_game()">
-            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;          
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;      
             <input type="button" name="Stop" id="Stop_button" value="Stop" onclick="stop_game()">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;  
+            <input type="button" name="setting_button" id="setting_button" value="Settings" onclick="initial_settings()">
+
             <br/><br/>
             <canvas  id ="canvas" height="400" width="800"></canvas>
         </div>
         <div id="settings" style="text-align:center;"hidden=true >
-                <h1> Settings </h1>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <label>Num of Monsters:</label>
-                <select id="Num_of_Monsters">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                </select>
-                <br></br>
-                <label>Number of ball:</label>
-                <input type="text"  id="Num_ball">
-                <br></br>
-                <label>Total time:</label>&ensp;&ensp;
-                <input type="text"  id="Total_time">
-                <br></br>
-                <label>Color Ball:</label>
-                <br></br>
-                <label>5:</label>
-                <input type="color"  id="5_color" >
-                <label>15:</label>
-                <input type="color"  id="15_color">
-                <label>25:</label>
-                <input type="color"  id="25_color">
-                <br></br>
-                <br></br>
-                <label>Controls:</label>
-                <br></br>
-                <label>Up:</label>
-                <input type="text"  id="up_button" >
-                <label>Down:</label>
-                <input type="text"  id="down_button">
-                <label>Right:</label>
-                <input type="text"  id="right_button">
-                <label>Left:</label>
-                <input type="text"  id="left_button">
-                <br></br>
-                <input type="button"  id="Save_settings" value="Save" onclick="save_settings()">
-                &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                <input type="button"  id="Random_settings" value="Random" onclick="Random_settings()">
-
-
-            </div>
-
+            <h1> Settings </h1>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <label>Num of Monsters:</label>
+            <select id="Num_of_Monsters">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+            </select>
+            <br></br>
+            <label>Number of ball:</label>
+            <input type="text"  id="Num_ball">
+            <br></br>
+            <label>Total time:</label>&ensp;&ensp;
+            <input type="text"  id="Total_time">
+            <br></br>
+            <label>Color Ball:</label>
+            <br></br>
+            <label>5:</label>
+            <input type="color"  id="5_color" >
+            <label>15:</label>
+            <input type="color"  id="15_color">
+            <label>25:</label>
+            <input type="color"  id="25_color">
+            <br></br>
+            <br></br>
+            <label>Controls:</label>
+            <br></br>
+            <label>Up:</label>
+            <input type="text"  id="up_button" >
+            <label>Down:</label>
+            <input type="text"  id="down_button">
+            <label>Right:</label>
+            <input type="text"  id="right_button">
+            <label>Left:</label>
+            <input type="text"  id="left_button">
+            <br></br>
+            <input type="button"  id="Save_settings" value="Save" onclick="save_settings()">
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+            <input type="button"  id="Random_settings" value="Random" onclick="Random_settings()">
+        </div>
         <div  id="Welcome">
             <h1> WELCOME&ensp;TO </h1>
             <h2> PAC-MAN </h2>
@@ -169,7 +168,7 @@
                   <br></br>
                   <br></br>
 
-                  <input type="button" name="register" id="login_button" value="login">
+                  <input type="button" name="register" id="login_button" value="Login">
 
         </div>
         <div  id = "footer" >© 2019 Copyright By Alon&Elad. Contact us at pacman@gmail.com </div>
@@ -181,8 +180,9 @@
                     <div class="popupCloseButton">X</div>
                     <h2>About</h3>
                     <p>Pac-Man Game by Alon Tsruya & Elad Foyershtein.<br></br>
-
-                        Our main difficulty was learning the feature HTML5's canvas API. Other than that, building the entire application was pretty fun.</p>
+                        We used jQuery Plugin to validate the use's input.</br>
+                        Our main difficulty was learning the feature HTML5's canvas API.</br>
+                        Other than that, building the entire application was pretty fun.</p>
                 </div>
         </div>
 
