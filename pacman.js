@@ -855,7 +855,6 @@ $(document).ready(function() {
             alert("Username exists on the system! Please choose a new username.");
         else
         {
-            alert(Password.value);
             map_user.set(UserName.value,Password.value);
         showElem('Register','settings')
         document.getElementById("LogOutlbl").innerHTML = 'Hello, ' + UserName.value ;
